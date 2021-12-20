@@ -14,7 +14,7 @@ with open("./README.MD", "r", encoding="utf-8") as fh:
 
 setup(
     name='django-setup-cli',
-    version='1.0.16',
+    version='1.0.17',
     include_package_data=True,
     description="django-setup-cli helps to produce production ready django project",
     author="Khan Asfi Reza",

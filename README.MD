@@ -32,7 +32,7 @@ source venv/bin/activate
 >you can use any name instead of **venv**
 ### 2. Install django-setup-cli
 ```cmd
-pip3 install django-cli
+pip3 install django-setup-cli
 ```
 
 ## Usages
