@@ -1,6 +1,6 @@
 import os.path
 
-from django_cli.core.setup_project.model import DBConfig, CacheConfig, SetupProjectState, SETUP_CONFIG_FILE, ENV_FILE
+from django_cli.setup_project.model import DBConfig, CacheConfig, SetupProjectState, SETUP_CONFIG_FILE, ENV_FILE
 from unittest import TestCase
 
 

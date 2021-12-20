@@ -6,7 +6,7 @@ from typing import Optional, Any, Union, List
 import click
 
 from django_cli.config import LIBRARIES_OPTIONAL, DBEngine, CACHE_BACKED
-from django_cli.core.setup_project.model import DefaultDBConfig
+from django_cli.setup_project.model import DefaultDBConfig
 from django_cli.utils import log, success
 
 
@@ -173,7 +173,7 @@ class PromptConfig:
         Question(
             input_type=InputType.BOOLEAN,
             title="Static File",
-            name="Create/Use Static File",
+            name="Create/Use Static File [Skip To Create]",
             var="static",
             default=True,
             type=bool
@@ -181,7 +181,7 @@ class PromptConfig:
         Question(
             input_type=InputType.BOOLEAN,
             title="Template File",
-            name="Create/Use Template File",
+            name="Create/Use Template File [Skip To Create]",
             var="template",
             default=True,
             type=bool
@@ -189,7 +189,7 @@ class PromptConfig:
         Question(
             input_type=InputType.BOOLEAN,
             title="Media File",
-            name="Create/Use Media File",
+            name="Create/Use Media File [Skip To Create]",
             var="media",
             default=True,
             type=bool

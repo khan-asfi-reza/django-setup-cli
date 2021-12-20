@@ -11,7 +11,7 @@ from django_cli.config import DBEngine, INSTALLED_APP, MIDDLEWARE, EXTRA, LINKED
 from django_cli.const import FILE_EXIST_ERROR, DEFAULT_REQUIREMENT_FILE
 from django_cli.utils import create_secret_key, log, execute, pip_name, error
 
-PATH = pathlib.Path(__file__).resolve().parent.parent
+PATH = pathlib.Path(__file__).resolve().parent
 
 SETUP_CONFIG_FILE = "setup.yaml"
 ENV_FILE = ".env"
@@ -159,7 +159,7 @@ class SetupProjectState(DataClassAbstract):
         data += "'" if cls_py else ''
         data += " : " if cls_py else " = "
         data += f"os.environ.get('{secret[key][1:]}', '')"
-        data += ",\n" if cls_py else ''
+        data += ",\n" if cls_py else '\n'
         return data
 
     def get_setup_yaml_data(self):
@@ -332,14 +332,14 @@ class SetupProjectState(DataClassAbstract):
             },
             {
                 "name": "readme",
-                "dj_loc": self.SOURCE_FOLDER,
+                "dj_loc": os.getcwd(),
                 "data": {},
                 "extension": ".md",
                 "suffix": ""
             },
             {
                 "name": "gitignore",
-                "dj_loc": self.SOURCE_FOLDER,
+                "dj_loc": os.getcwd(),
                 "data": {},
                 "extension": "",
                 "suffix": "."

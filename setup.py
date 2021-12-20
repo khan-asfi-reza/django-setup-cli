@@ -22,7 +22,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/khan-asfi-reza/django-setup-cli",
-    packages=find_packages(exclude=("test*",)),
+    packages=find_packages(exclude=("tests*",)),
     install_requires=read_requirements(),
     package_data={'': ['*.template',
                        'django_cli/template/*.template',

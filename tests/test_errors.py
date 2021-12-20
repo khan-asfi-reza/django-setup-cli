@@ -1,10 +1,8 @@
 import os
-import pathlib
 from unittest import TestCase
 
-from django_cli.core.setup_project.handler import ProjectInitializer
-from django_cli.core.setup_project.model import DefaultDBConfig
-from django_cli.utils import error
+from django_cli.setup_project.handler import ProjectInitializer
+from django_cli.setup_project.model import DefaultDBConfig
 
 
 class ErrorTest(TestCase):
@@ -25,17 +23,17 @@ class ErrorTest(TestCase):
         self.assertIsNone(Proj.state.cache)
 
     def test_yaml(self):
-        data = ProjectInitializer.get_yaml_config(self.BASE_DIR + "/test/nothing.yaml")
+        data = ProjectInitializer.get_yaml_config(self.BASE_DIR + "/tests/nothing.yaml")
         self.assertEqual(data, {})
 
     def test_bad_yaml(self):
-        data = ProjectInitializer.get_yaml_config(self.BASE_DIR + "/test/bad.yaml")
+        data = ProjectInitializer.get_yaml_config(self.BASE_DIR + "/tests/bad.yaml")
         self.assertEqual(data, {})
 
     def test_invalid_yaml(self):
-        data = ProjectInitializer.get_yaml_config(self.BASE_DIR + "/test/bad.txt")
+        data = ProjectInitializer.get_yaml_config(self.BASE_DIR + "/tests/bad.txt")
         self.assertEqual(data, {})
 
     def test_empty_yaml(self):
-        data = ProjectInitializer.get_yaml_config(self.BASE_DIR + "/test/empty.yaml")
+        data = ProjectInitializer.get_yaml_config(self.BASE_DIR + "/tests/empty.yaml")
         self.assertEqual(data, {})

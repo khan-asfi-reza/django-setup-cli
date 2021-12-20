@@ -1,3 +1,25 @@
 # $PROJECT_NAME
 
-##### Built Using [django-cli](https://github.com/khan-asfi-reza/django-cli)
+## How To Start
+
+
+### 1. Activate Virtualenv
+
+`windows`
+```cmd
+ <YOUR WORKING DIRECTORY>/venv/scripts/activate
+```
+>Your Current Working Directory
+
+`Ubuntu [Debian]`
+```commandline
+source venv/bin/activate
+```
+>you can use any name instead of **venv**
+
+### 2. Runserver
+```
+python3 src/manage.py runserver
+```
+
+> Built Using [django-cli](https://github.com/khan-asfi-reza/django-setup-cli)

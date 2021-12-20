@@ -1,8 +1,8 @@
 import click
 from dotenv import load_dotenv
 
-from django_cli.const import DEFAULT_ENV_FILE, DEFAULT_REQUIREMENT_FILE
-from django_cli.core.setup_project.handler import ProjectInitializer
+from django_cli.const import DEFAULT_ENV_FILE
+from django_cli.setup_project.handler import ProjectInitializer
 import os
 
 from django_cli.utils import error
@@ -10,7 +10,7 @@ from django_cli.utils import error
 
 @click.group()
 def cli():
-    """Root CLI"""
+    """Django Cli"""
 
 
 def load_cli_env(env):

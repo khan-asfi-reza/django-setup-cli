@@ -10,11 +10,11 @@ from django_cli.const import (GENERATE_LOG_SUCCESS_MSG,
                               CONFIG_FILE_NAME,
                               LOG_SUCCESS_PROJECT_COMPLETE, DEFAULT_REQUIREMENT_FILE)
 from django_cli.core.BaseCommand import BaseCommand, pre_execute
-from django_cli.core.setup_project.model import (SetupProjectState,
-                                                 DBConfig,
-                                                 CacheConfig,
-                                                 DefaultDBConfig)
-from django_cli.core.setup_project.prompt import PromptConfig
+from django_cli.setup_project.model import (SetupProjectState,
+                                            DBConfig,
+                                            CacheConfig,
+                                            DefaultDBConfig)
+from django_cli.setup_project.prompt import PromptConfig
 from django_cli.utils import error, success
 
 
