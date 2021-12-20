@@ -24,7 +24,7 @@ LIBRARIES_OPTIONAL = [
 ]
 # INSTALLED APP LIST
 INSTALLED_APP = {
-    DJANGO_REST_FRAMEWORK: "rest_framework",
+    DJANGO_REST_FRAMEWORK: "'rest_framework'",
     GRAPHENE_DJANGO: "'graphene_django'",
     CHANNELS: "'channels'",
     DJANGO_STORAGES: "'storages'",
@@ -47,7 +47,7 @@ CHANNEL_LAYERS = {
          'CONFIG': {'hosts': [os.environ.get('REDIS_URL', 'redis://localhost:6379')]},
      },     
 }
-ASGI_APPLICATION = $PROJECT_NAME.asgi.application
+ASGI_APPLICATION = "$PROJECT_NAME.routing.application"
 """
 }
 

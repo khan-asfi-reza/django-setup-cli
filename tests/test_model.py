@@ -23,7 +23,7 @@ class DataStateTest(TestCase):
 
     PROJECT_CONFIG = {
         "name": "TEST_PROJECT",
-        "libraries": ["django-rest-framework", "celery"],
+        "libraries": ["django-extension"],
         "requirements": True,
         "template": True,
         "media": False,

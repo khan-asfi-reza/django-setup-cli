@@ -169,7 +169,7 @@ class SetupProjectState(DataClassAbstract):
         for classifier in self.ENV_SECRET:
             if classifier in data and data[classifier]:
                 cls_py = True if classifier in self.CONFIG_PY_CLASSIFY else False
-                env_data += f"{classifier.upper()}_CONFIG=" + "{" if cls_py else ""
+                env_data += f"{classifier.upper()}_CONFIG=" + "{\n" if cls_py else ""
                 for _id, (key, val) in enumerate(data[classifier].items()):
                     secret = self.get_data_as_secret(key, classifier)
                     data[classifier].update(secret)
