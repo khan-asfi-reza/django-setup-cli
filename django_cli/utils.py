@@ -1,8 +1,7 @@
-import platform
-import click
 import os
-import string
 import random
+import string
+import click
 
 
 def error(text, **kwargs):
