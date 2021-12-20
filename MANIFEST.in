@@ -1,2 +1,3 @@
 include build-requirements.txt
 include README.md
+recursive-include django_cli/template *
