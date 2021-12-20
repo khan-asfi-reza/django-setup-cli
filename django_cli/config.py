@@ -60,7 +60,7 @@ LINKED_LIBRARY = {
 
 LINKED_FILES = {
     CHANNELS: {
-        "file": "routing",
+        "name": "routing",
         "dj_loc": "$APP_LOC",
         "data": "",
         "extension": ".py",

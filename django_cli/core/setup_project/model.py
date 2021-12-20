@@ -108,6 +108,8 @@ class SetupProjectState(DataClassAbstract):
     Setup Project State
     """
     name: str
+    author: str = ""
+    description: str = ""
     libraries: List[str] = None
     required: List[str] = None
     database: Optional[DBConfig] = None

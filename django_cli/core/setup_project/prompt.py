@@ -56,8 +56,9 @@ class QuestionAbstract:
     title: str = ""
     children: Optional[List[Any]] = None
 
-    def prompt(self, text, fg="blue", data_type: Any = None, **kwargs) -> Any:
+    def prompt(self, text, fg="blue", data_type: Any = None, default="", **kwargs) -> Any:
         """
+        :param default
         :param data_type:
         :param fg: Foreground Color
         :param text: Prompt Text
@@ -72,7 +73,7 @@ class QuestionAbstract:
         if data_type is bool:
             return click.confirm(text)
 
-        user_input = click.prompt(text, type=data_type)
+        user_input = click.prompt(text, type=data_type, default=default, )
         # Enforce Default Value
         return self.default if not user_input else user_input
 
@@ -89,7 +90,7 @@ class QuestionAbstract:
 
         # Input Type String | Boolean ->
         if self.input_type == InputType.STRING or self.input_type == InputType.BOOLEAN:
-            answer = {self.var: self.prompt(self.name)}
+            answer = {self.var: self.prompt(self.name, default=self.default)}
 
         # IF Input is not required, seek confirmation
         proceed = True
@@ -135,6 +136,20 @@ class PromptConfig:
             name="Your Project Name",
             var="name",
             default="Django Project"
+        ),
+        Question(
+            input_type=InputType.STRING,
+            title="Author Details",
+            name="Author Name",
+            var="author",
+            default=""
+        ),
+        Question(
+            input_type=InputType.STRING,
+            title="Project Description",
+            name="Description",
+            var="description",
+            default=""
         ),
         # Question(
         #     input_type=InputType.BOOLEAN,
