@@ -1,0 +1,5 @@
+pyyaml~=6.0
+setuptools~=57.0.0
+click~=8.0.3
+python-dotenv~=0.19.2
+django

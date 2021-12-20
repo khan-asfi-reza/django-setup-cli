@@ -1,0 +1,20 @@
+NAME: PROJECT_NAME
+libraries:
+- djangorestframework
+- django-cors-header
+database:
+  engine: postgresql
+  name: db_name
+  host: localhost
+  port: '5432'
+  password: $PASSWORD
+  username: root
+cache:
+  engine: redis
+  host: localhost
+  port: port
+env:
+  secret_key: $SECRET_KEY
+  allowed_host: localhost 127.0.0.1
+requirements: True
+docker: True

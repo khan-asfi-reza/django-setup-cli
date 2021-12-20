@@ -1,0 +1,2 @@
+include build-requirements.txt
+include README.md
