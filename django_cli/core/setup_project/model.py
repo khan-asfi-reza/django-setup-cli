@@ -7,7 +7,7 @@ from typing import Optional, List
 
 import yaml
 
-from django_cli.config import DBEngine, INSTALLED_APP, MIDDLEWARE, EXTRA
+from django_cli.config import DBEngine, INSTALLED_APP, MIDDLEWARE, EXTRA, LINKED_FILES
 from django_cli.const import FILE_EXIST_ERROR, DEFAULT_REQUIREMENT_FILE
 from django_cli.utils import create_secret_key, log, execute, pip_name, error
 
@@ -239,23 +239,32 @@ class SetupProjectState(DataClassAbstract):
 
     def get_settings_installed_app(self):
         """Get Required Installed Libs in INSTALLED_APP Settings"""
-        return "".join([f"   {INSTALLED_APP[lib]},\n" for lib in self.get_all_libs() if lib in INSTALLED_APP])
+        return "".join([f"    {INSTALLED_APP[lib]},\n" for lib in self.get_all_libs() if lib in INSTALLED_APP])
 
     def get_middlewares(self):
         """Set required middlewares in Middleware Settings"""
-        return "".join([f"   {MIDDLEWARE[lib]},\n" for lib in self.get_all_libs() if lib in MIDDLEWARE])
+        return "".join([f"    {MIDDLEWARE[lib]},\n" for lib in self.get_all_libs() if lib in MIDDLEWARE])
 
     def get_extra(self):
         """Any Extra Settings"""
-        return "".join([f"{EXTRA[lib]},\n" for lib in self.get_all_libs() if lib in EXTRA])
+        return "".join([f"{EXTRA[lib]}\n".replace("$PROJECT_NAME", self.normalize_name())
+                        for lib in self.get_all_libs()
+                        if lib in EXTRA])
 
     def create_required_directory(self):
         """Create Folders That are required"""
         folders_to_create = [self.SOURCE_FOLDER,
-                             f"{self.SOURCE_FOLDER}/media",
-                             f"{self.SOURCE_FOLDER}/static",
-                             f"{self.SOURCE_FOLDER}/template",
                              f"{self.SOURCE_FOLDER}/{self.normalize_name()}"]
+
+        if self.static:
+            folders_to_create += [f"{self.SOURCE_FOLDER}/static", ]
+
+        if self.media_files:
+            folders_to_create += [f"{self.SOURCE_FOLDER}/media", ]
+
+        if self.template:
+            folders_to_create += [f"{self.SOURCE_FOLDER}/template", ]
+
         for folder in folders_to_create:
             os.mkdir(folder)
 
@@ -334,6 +343,12 @@ class SetupProjectState(DataClassAbstract):
                 "suffix": "."
             }
         ]
+        for lib in self.get_all_libs():
+            if lib in LINKED_FILES:
+                data = {k: v.replace("$SOURCE_FOLDER", self.SOURCE_FOLDER).replace("$APP_LOC", APP_LOC)
+                        for k, v in LINKED_FILES[lib].items()
+                        }
+                files.append(data)
         for file in files:
             f_name = file.get("name")
             location = file.get("dj_loc")
