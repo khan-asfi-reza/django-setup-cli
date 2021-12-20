@@ -1,7 +1,7 @@
 # django-setup-cli
 
 #### Django Setup Cli
-[![GitHub Actions (Tests)](https://github.com/khan-asfi-reza/django-cli/workflows/Build/badge.svg)](https://github.com/khan-asfi-reza/django-cli)
+[![GitHub Actions (Tests)](https://github.com/khan-asfi-reza/django-setup-cli/workflows/Build/badge.svg)](https://github.com/khan-asfi-reza/django-cli)
 [![codecov](https://codecov.io/gh/khan-asfi-reza/django-cli/branch/master/graph/badge.svg?token=E0NYHYS5W0)](https://codecov.io/gh/khan-asfi-reza/django-cli)
 
 It takes time to start a Django Project and make it almost production ready. A developer needs to spend a lot of time 
