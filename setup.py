@@ -14,7 +14,7 @@ with open("./README.MD", "r", encoding="utf-8") as fh:
 
 setup(
     name='django-setup-cli',
-    version='1.0.1',
+    version='1.0.12',
     include_package_data=True,
     description="django-setup-cli helps to produce production ready django project",
     author="Khan Asfi Reza",
@@ -24,6 +24,7 @@ setup(
     url="https://github.com/khan-asfi-reza/django-setup-cli",
     packages=find_packages(exclude=("test*",)),
     install_requires=read_requirements(),
+    package_data={'': ['*.template', 'django_cli/template/*.template']},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
