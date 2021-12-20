@@ -263,21 +263,23 @@ class SetupProjectState(DataClassAbstract):
         """Create Required Python Files"""
         APP_LOC = f"{self.SOURCE_FOLDER}/{self.normalize_name()}"
 
-        def django_location(root_location, file_name, extension=".py"):
-            return f"{root_location}/{file_name}{extension}"
+        def django_location(root_location, file_name, extension=".py", suffix=""):
+            return f"{root_location}/{suffix}{file_name}{extension}"
 
         files = [
             {
                 "name": "asgi",
                 "dj_loc": APP_LOC,
                 "data": {},
-                "extension": ".py"
+                "extension": ".py",
+                "suffix": ""
             },
             {
                 "name": "wsgi",
                 "dj_loc": APP_LOC,
                 "data": {},
-                "extension": ".py"
+                "extension": ".py",
+                "suffix": ""
             },
             {
                 "name": "settings",
@@ -291,19 +293,22 @@ class SetupProjectState(DataClassAbstract):
                     "MEDIA_SETTINGS": MEDIA_FILE_SETTINGS if self.media_files else "",
                     "TEMPLATE_SETTINGS": TEMPLATE_SETTINGS if self.template else ""
                 },
-                "extension": ".py"
+                "extension": ".py",
+                "suffix": ""
             },
             {
                 "name": "urls",
                 "dj_loc": APP_LOC,
                 "data": {},
-                "extension": ".py"
+                "extension": ".py",
+                "suffix": ""
             },
             {
                 "name": "manage",
                 "dj_loc": self.SOURCE_FOLDER,
                 "data": {},
-                "extension": ".py"
+                "extension": ".py",
+                "suffix": ""
             },
             {
                 "name": "config",
@@ -311,19 +316,22 @@ class SetupProjectState(DataClassAbstract):
                 "data": {
                     "CONFIG_VARS": self.PYTHON_ENV
                 },
-                "extension": ".py"
+                "extension": ".py",
+                "suffix": ""
             },
             {
                 "name": "readme",
                 "dj_loc": self.SOURCE_FOLDER,
                 "data": {},
-                "extension": ".md"
+                "extension": ".md",
+                "suffix": ""
             },
             {
-                "name": ".gitignore",
+                "name": "gitignore",
                 "dj_loc": self.SOURCE_FOLDER,
                 "data": {},
-                "extension": ""
+                "extension": "",
+                "suffix": "."
             }
         ]
         for file in files:
@@ -331,10 +339,10 @@ class SetupProjectState(DataClassAbstract):
             location = file.get("dj_loc")
             data = file.get("data")
             ext = file.get("extension")
-
+            suf = file.get("suffix")
             self.set_py_from_template(
                 f_name + ".template",
-                django_location(file_name=f_name, root_location=location, extension=ext),
+                django_location(file_name=f_name, root_location=location, extension=ext, suffix=suf),
                 data=data
             )
 

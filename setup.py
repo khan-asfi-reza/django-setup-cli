@@ -24,7 +24,9 @@ setup(
     url="https://github.com/khan-asfi-reza/django-setup-cli",
     packages=find_packages(exclude=("test*",)),
     install_requires=read_requirements(),
-    package_data={'': ['*.template', 'django_cli/template/*.template', 'template/*.template'],
+    package_data={'': ['*.template',
+                       'django_cli/template/*.template',
+                       'template/*.template'],
                   'django_cli': ['template/*.template']
                   },
     classifiers=[
