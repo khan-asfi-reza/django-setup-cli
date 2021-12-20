@@ -24,7 +24,6 @@ class DataStateTest(TestCase):
     PROJECT_CONFIG = {
         "name": "TEST_PROJECT",
         "libraries": ["django-rest-framework", "celery"],
-        "docker": True,
         "requirements": True,
         "template": True,
         "media": False,

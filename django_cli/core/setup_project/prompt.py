@@ -136,14 +136,14 @@ class PromptConfig:
             var="name",
             default="Django Project"
         ),
-        Question(
-            input_type=InputType.BOOLEAN,
-            title="Dockerize",
-            name="Enable Docker",
-            var="docker",
-            default=False,
-            type=bool
-        ),
+        # Question(
+        #     input_type=InputType.BOOLEAN,
+        #     title="Dockerize",
+        #     name="Enable Docker",
+        #     var="docker",
+        #     default=False,
+        #     type=bool
+        # ),
         Question(
             input_type=InputType.MULTIPLE_CHOICE,
             title="Install Necessary Libraries",

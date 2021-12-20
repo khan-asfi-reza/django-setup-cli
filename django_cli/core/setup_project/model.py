@@ -113,7 +113,7 @@ class SetupProjectState(DataClassAbstract):
     database: Optional[DBConfig] = None
     cache: Optional[CacheConfig] = None
     env: dict = None
-    docker: bool = False
+    # docker: bool = False
     requirements: bool = False
     template: bool = True
     static: bool = True

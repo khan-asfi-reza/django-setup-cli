@@ -4,7 +4,7 @@ from unittest import TestCase
 from click.testing import CliRunner
 from django_cli.cli import make_generate, start_project, install_libraries
 
-GENERATE_TEST_INPUT = "Project1\ny\ny\ny\ny\ny\ny\ny\ny\nn\ny\nn\ny\ny\ny\ny\n2\nX\nY\nZ\nA\nB\nn"
+GENERATE_TEST_INPUT = "Project1\ny\ny\ny\ny\ny\ny\ny\nn\ny\nn\ny\ny\ny\ny\n2\nX\nY\nZ\nA\nB\nn"
 
 
 class TestCLI(TestCase):

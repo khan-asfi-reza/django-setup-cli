@@ -1,0 +1,24 @@
+name: Project1
+libraries:
+- djangorestframework
+- graphene-django
+- django-channels
+- django-localflavor
+- celery
+- whitenoise
+- django-extensions
+static: true
+template: true
+database:
+  port: $DATABASE_PORT
+  host: $DATABASE_HOST
+  password: $DATABASE_PASSWORD
+  user: $DATABASE_USER
+  name: $DATABASE_NAME
+  engine: $DATABASE_ENGINE
+required:
+- django-cors-headers
+- mysqlclient
+- channels_redis
+env:
+  SECRET_KEY: $SECRET_KEY
