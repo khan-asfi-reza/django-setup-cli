@@ -277,7 +277,7 @@ class PromptConfig:
             self.answer.update({"name": self.project_name})
 
     def execute(self):
-        __answer = {}
+        __answer = self.answer if self.answer else {}
 
         for key, val in enumerate(self.PROMPT_QUES):
             success(f"{key + 1}. {val.title}")
